@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">BasicLab</string>
     <string name="action_settings">Settings</string>
+    <string name="action_options">Options</string>
+    <string name="action_credits">Credits</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
