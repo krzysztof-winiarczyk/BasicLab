@@ -58,13 +58,28 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        View view = getWindow().getDecorView().findViewById(android.R.id.content);
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch (id){
+            case R.id.action_settings:
+                settings(view);
+                return true;
+            case R.id.action_credits:
+                credits(view);
+                return true;
+            case R.id.action_options:
+                options(view);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
 
-        return super.onOptionsItemSelected(item);
+        //noinspection SimplifiableIfStatement
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
+
+        //return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -72,5 +87,20 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
+    }
+
+    private void settings(View view){
+        Snackbar.make(view, "You clicked on settings!", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
+
+    private void credits(View view){
+        Snackbar.make(view, "App made by Krzysztof W.", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
+
+    private void options(View view){
+        Snackbar.make(view, "Here will be options", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
     }
 }
